@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.properties-wrapper{
+  width: 90%;
+  margin: auto;
+}
+
+.property{
+  border: 1px solid#aaa;
+  height: 100%;
+
+  display: block;
+}
+
+.contact-button{
+  bottom: 0;
+}
+
+.card-block{
+  position: relative;
+}
+
+.heart-icon{
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+
+.price{
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
+
+.card-image{
+  width: 100%;
+}
+
+.card-container{
+  position: relative;
+}
