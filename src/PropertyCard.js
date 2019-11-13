@@ -17,6 +17,7 @@ class PropertyCard extends React.Component {
       localStorage.setItem(propertyID, "active")
     }
     this.setState({reload: !this.state.reload})
+    this.props.loadFavourite()
   }
 
 

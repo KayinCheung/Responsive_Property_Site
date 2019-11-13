@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import PropertyCard from './PropertyCard';
+import Modal from './Modal';
 
 class App extends React.Component {
 
@@ -10,7 +11,12 @@ class App extends React.Component {
       data: [],
       loaded: false,
       error: false,
+      modalActive: false,
+      favourite: {}
     }
+
+    this.disableModal = this.disableModal.bind(this)
+    this.loadFavourite = this.loadFavourite.bind(this)
   }
 
   componentDidMount() {
@@ -22,7 +28,7 @@ class App extends React.Component {
               data,
               loaded: true,
               error: false
-            })
+            }, this.loadfavourite)
           });
         } else {
           console.log("ERROR");
@@ -34,16 +40,34 @@ class App extends React.Component {
       });
   }
 
+  disableModal() {
+    this.setState({ modalActive: false })
+  }
+
+  loadFavourite() {
+    console.log("load")
+    const { data } = this.state
+    let favourite = {}
+    for (let i = 0; i < data.length; i++) {
+      if (localStorage.getItem(data[i].id)) {
+        favourite[data[i].id] = true
+      }
+    }
+    this.setState({ favourite: favourite })
+  }
 
 
   render() {
 
-    const { data, error, loaded } = this.state
-    console.log(data)
+    const { data, error, loaded, modalActive, favourite } = this.state
+    console.log(data, favourite)
     return (
       <div className="App">
         {error ? "No internet connection. Please refresh and try again" : ""}
         {(!loaded && !error) ? <i className="fas fa-spinner fa-spin"></i> : ""}
+        <br />
+        <button className="button" onClick={() => this.setState({ modalActive: true })}>View All Favourites</button>
+        <Modal data={data} active={modalActive} disableModal={this.disableModal} favourite={favourite} loadFavourite={this.loadFavourite}/>
         <div className="properties-wrapper">
           <div className="columns is-multiline is-marginless is-paddingless is-tablet is-centered">
             {data.map((property) => {
@@ -52,6 +76,7 @@ class App extends React.Component {
                   key={property.id}
                   property={property}
                   handleFavouriteClick={this.handleFavouriteClick}
+                  loadFavourite={this.loadFavourite}
                 />
               )
             })}
