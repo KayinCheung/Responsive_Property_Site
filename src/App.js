@@ -76,16 +76,20 @@ class App extends React.Component {
     return (
       <div className="App">
         {error ? "No internet connection. Please refresh and try again" : ""}
-        {!loaded && !error ? <i className="fas fa-spinner fa-spin" /> : ""}
+        {!loaded && !error ? (
+          <i className="fas fa-spinner fa-spin" />
+        ) : (
+          <button
+            className="button"
+            onClick={() => this.setState({ modalActive: true })}
+          >
+            {numFavourite}
+            &nbsp; Favourites &nbsp;
+            <i className="fas fa-heart has-text-danger" />
+          </button>
+        )}
         <br />
-        <button
-          className="button"
-          onClick={() => this.setState({ modalActive: true })}
-        >
-          {numFavourite}
-          &nbsp; Favourites &nbsp;
-          <i className="fas fa-heart has-text-danger" />
-        </button>
+
         <Modal
           data={data}
           active={modalActive}
