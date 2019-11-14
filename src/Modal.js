@@ -18,7 +18,7 @@ class Modal extends React.Component {
           </header>
           <section className="modal-card-body">
             <div className="properties-wrapper">
-              <div className="columns is-multiline is-marginless is-paddingless is-tablet is-centered">
+              <div className="columns is-multiline is-marginless is-paddingless is-mobile is-centered">
               
                 {data.map((property) => {
                   if (favourite[property.id]) {
