@@ -19,7 +19,7 @@ Front end: React, Bulma CSS library
 - Displays properties in rows of 3 for desktop. Rows of 2 (tablet), or stacked columns (mobile)
 - Users can favorite/unfavourite a property with the clickable heart icon. The favourites are saved to localStorage.
 - Heart icon turns red if favourited, default it's gray.
-- "View all favorites" button displays just the list of favorite properties. Users can also unfavorite in the popup.
+- Button displays number of favourite properties at the top center. Clicking it shows a popup with list of favorite properties. Users can also unfavorite in the popup.
 
 ### Assumptions
 
