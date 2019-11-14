@@ -11,7 +11,8 @@ class App extends React.Component {
       loaded: false,
       error: false,
       modalActive: false,
-      favourite: {}
+      favourite: {},
+      numFavourite: 0
     };
 
     this.disableModal = this.disableModal.bind(this);
@@ -29,7 +30,7 @@ class App extends React.Component {
                 loaded: true,
                 error: false
               },
-              this.loadfavourite
+              this.loadFavourite
             );
           });
         } else {
@@ -55,11 +56,12 @@ class App extends React.Component {
         favourite[data[i].id] = true;
       }
     }
-    this.setState({ favourite: favourite });
+    console.log(favourite)
+    this.setState({ favourite: favourite, numFavourite: Object.keys(favourite).length });
   }
 
   render() {
-    const { data, error, loaded, modalActive, favourite } = this.state;
+    const { data, error, loaded, modalActive, favourite, numFavourite } = this.state;
     console.log(data, favourite);
     return (
       <div className="App">
@@ -70,7 +72,7 @@ class App extends React.Component {
           className="button"
           onClick={() => this.setState({ modalActive: true })}
         >
-          {Object.keys(favourite).length}
+          {numFavourite}
           &nbsp; Favourites &nbsp;
           <i className="fas fa-heart has-text-danger" />
         </button>
