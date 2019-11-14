@@ -56,12 +56,22 @@ class App extends React.Component {
         favourite[data[i].id] = true;
       }
     }
-    console.log(favourite)
-    this.setState({ favourite: favourite, numFavourite: Object.keys(favourite).length });
+    console.log(favourite);
+    this.setState({
+      favourite: favourite,
+      numFavourite: Object.keys(favourite).length
+    });
   }
 
   render() {
-    const { data, error, loaded, modalActive, favourite, numFavourite } = this.state;
+    const {
+      data,
+      error,
+      loaded,
+      modalActive,
+      favourite,
+      numFavourite
+    } = this.state;
     console.log(data, favourite);
     return (
       <div className="App">
