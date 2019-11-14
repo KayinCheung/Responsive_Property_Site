@@ -35,9 +35,11 @@
 }
 
 .card-image{
-  width: 100%;
+  max-width: 492px;
 }
 
 .card-container{
   position: relative;
+
 }
+
