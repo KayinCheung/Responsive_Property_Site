@@ -70,7 +70,9 @@ class App extends React.Component {
           className="button"
           onClick={() => this.setState({ modalActive: true })}
         >
-          View All Favourites
+          {Object.keys(favourite).length}
+          &nbsp; Favourites &nbsp;
+          <i className="fas fa-heart has-text-danger" />
         </button>
         <Modal
           data={data}
