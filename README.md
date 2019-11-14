@@ -1,5 +1,15 @@
+### Deployed live at
+Link: http://18.136.211.239/
+
+### Tech stack
+Hosting: AWS EC2, Nginx
+
+Front end: React, Bulma CSS library
+
 ### Run the project
+
 `npm install`
+
 `npm start`
 
 ### Features
